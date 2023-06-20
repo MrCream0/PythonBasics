@@ -59,11 +59,11 @@ calc_mean funtion
 
 calc_median funtion
   takes in a dataset
-  returns the mean
+  returns the median
 
 calc_mode function
   takes in a dataset
-  returns the mean
+  returns the mode
 
 solve_dataset function
   takes in a dataset
