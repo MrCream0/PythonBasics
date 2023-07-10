@@ -1,7 +1,32 @@
 """Module to calculate the mean, median, and mode of a set of numbers."""
-from typing import Optional
 
-from IPython.terminal.debugger import set_trace
+
+def calc_mean(numbers: list[int]) -> float:
+    """
+    Calculates the average of a list of numbers.
+
+    Given a list of numbers, calculate the sum then divide them by the
+    total amount of numbers and round it.
+
+    Notes:
+        Rounds to three decimal places.
+
+    Args:
+        numbers (List[int]): A list of integers.
+
+    Returns:
+        float: Float represented mean, rounded to three decimal places.
+
+    Examples:
+        >>> nums = [6, 9, 1, 2, 6, 3, 7]
+        >>> mean = calc_mean(nums)
+        >>> print(mean)
+        4.857
+
+    """
+
+    mean = sum(numbers) / len(numbers)
+    return round(mean, 3)
 
 
 def calc_mean(numbers: list[int]) -> float:
@@ -23,7 +48,7 @@ def calc_median(numbers: list[int]) -> float:
 
     if length % 2:
         # odd
-        median = sorted_numbers[midpoint_index]
+        median = float(sorted_numbers[midpoint_index])
     else:
         # even
         upper_value = sorted_numbers[midpoint_index]
@@ -35,7 +60,7 @@ def calc_median(numbers: list[int]) -> float:
     return rounded_median
 
 
-def calc_mode(numbers):
+def calc_mode(numbers: list[int]) -> list[int]:
     """Return the mode of a list of numbers."""
 
     frequency_dict = {}
@@ -58,7 +83,7 @@ def calc_mode(numbers):
 
 def solve_dataset(numbers: list[int]) -> tuple[float,
                                                float,
-                                               list[Optional[int]]]:
+                                               list[int]]:
     """Return the mean, median, and mode of a data set."""
 
     mean = calc_mean(numbers)
@@ -68,7 +93,9 @@ def solve_dataset(numbers: list[int]) -> tuple[float,
     return mean, median, mode
 
 
-def main():
+def main() -> None:
+    """Execute the main process."""
+
     data_set_one = [6, 9, 1, 2, 6, 3, 7]
     data_set_two = [6, 9, 1, 2, 6, 3, 7, 4]
     data_set_three = [6, 9, 1, 2, 6, 3, 7, 4, 1]
@@ -78,7 +105,8 @@ def main():
 
     for data_set in data_sets:
         mean, median, mode = solve_dataset(data_set)
-        print(f"data_set={data_set}: mean={mean}, median={median}, mode={mode}")
+        print(f"data_set={data_set}: "
+              f"mean={mean}, median={median}, mode={mode}")
 
 
 if __name__ == "__main__":
